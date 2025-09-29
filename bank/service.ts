@@ -50,6 +50,10 @@ class BankService implements IBankService {
         toAcc.balance += amount
         toAcc.history.push(amount)
     }
+    getTransactionHistory(id: string): number[] {
+        const account = this.getAccountById(id)
+        return account.history
+    }
 }
 
 const obj: IBankService = new BankService()
@@ -57,3 +61,5 @@ const account = obj.addAccount({ name: "Alisha", age: 28, email: "a@g.com" })
 const account1 = obj.addAccount({ name: "Ajay", age: 38, email: "ajay@g.com" })
 obj.transferAmount(account.id, account1.id, 2000)
 console.log(account, account1);
+const transactionHistory = obj.getTransactionHistory(account.id)
+console.log(transactionHistory);
