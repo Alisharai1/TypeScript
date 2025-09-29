@@ -1,0 +1,1 @@
+export type Car = { model: string, brand: string, year: Date }
