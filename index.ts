@@ -27,7 +27,7 @@ console.log(ar);
 let ar2: Array<string> = ['Alisha', 'Rai']
 console.log(ar2);
 
-
+// 3 ways to define object
 // W1
 type User = { name: string, age: number, email: string }
 
@@ -47,7 +47,7 @@ type User = { name: string, age: number, email: string }
 //     }
 // }
 
-const obj: User  = { name: 'Ritu', age: 28, email: 'alishrai78@gmail.com', }
+const obj: User = { name: 'Ritu', age: 28, email: 'alishrai78@gmail.com', }
 
 
 

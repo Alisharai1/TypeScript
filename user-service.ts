@@ -1,5 +1,5 @@
 import { User } from "./user";
-import IUserService  from "./user-service.interface";
+import IUserService from "./user-service.interface";
 
 class UserService implements IUserService {
     private users: User[]
@@ -39,8 +39,10 @@ class UserService implements IUserService {
         const end = start + 5
         return this.users.slice(start, end)
     }
-
-
+    //30 users
+    //offset=0- start-
+    //limit=5- end
+    //1->1-5,2->6-10,3->11-15,4->16-20...
 }
 
 const userService = new UserService()

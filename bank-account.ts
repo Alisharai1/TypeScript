@@ -3,6 +3,11 @@ interface IBankAccount {
     withdraw(amount: number): number
     getBalance(): number
 }
+enum AccountType {
+    SAVING = "SAVING",
+    CURRENT = "CURRENT",
+}
+
 class InsufficentBalanceError extends Error {
     constructor(msg: string) {
         super(msg)
@@ -11,8 +16,10 @@ class InsufficentBalanceError extends Error {
 
 class BankAccount implements IBankAccount {
     private balance: number
-    constructor(initialBalance: number) {
+    private accountType: AccountType
+    constructor(initialBalance: number, accountType: AccountType) {
         this.balance = initialBalance
+        this.accountType = accountType
     }
 
     deposit(amount: number): number {
@@ -23,9 +30,12 @@ class BankAccount implements IBankAccount {
     withdraw(amount: number): number {
         if (this.balance > amount) {
             this.balance -= amount
+            console.log(this.accountType);
+
             return this.balance
         }
         throw new InsufficentBalanceError("Insufficient balance.")
+
     }
 
     getBalance(): number {
@@ -36,7 +46,7 @@ class BankAccount implements IBankAccount {
 function main(): void {
     try {
 
-        const obj = new BankAccount(2000)
+        const obj = new BankAccount(2000, AccountType.CURRENT)
         let newAmount = obj.deposit(5000)
         console.log(newAmount);
         newAmount = obj.withdraw(4000)

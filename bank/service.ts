@@ -25,6 +25,12 @@ class BankService implements IBankService {
         return account
     }
     getAccountById(accountId: string): Account {
+        //const account= this.accounts.find((acc)=>{
+        //if(accountId===acc.accountId)
+        // })
+        //this.accounts.find(({id})=>)
+        console.log(accountId);
+
         const account = this.accounts.find(({ id }) => id == accountId)
         if (!account) {
             throw new Error("account not found")
@@ -38,17 +44,17 @@ class BankService implements IBankService {
         this.accounts = this.accounts.filter(({ id: accId }) => id !== accId)
     }
     transferAmount(acc1: string, acc2: string, amount: number): void {
-        const fromAcc = this.getAccountById(acc1)
-        const toAcc = this.getAccountById(acc2)
+        const a = this.getAccountById(acc1)
+        const b = this.getAccountById(acc2)
 
-        if (fromAcc.balance < amount) {
+        if (a.balance < amount) {
             throw new Error('Insufficent balence')
         }
 
-        fromAcc.balance -= amount
-        fromAcc.history.push(-amount)
-        toAcc.balance += amount
-        toAcc.history.push(amount)
+        a.balance -= amount
+        a.history.push(-amount)
+        b.balance += amount
+        b.history.push(amount)
     }
     getTransactionHistory(id: string): number[] {
         const account = this.getAccountById(id)
