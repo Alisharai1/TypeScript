@@ -1,8 +1,8 @@
 function Love(name: string): void {
     console.log("I love Biryani", name);
 }
-
-Love("Ajay")
+const looser = "AJay"
+Love(looser)
 Love("22")
 
 function greet(name: string): string {

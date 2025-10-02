@@ -40,9 +40,9 @@ class UserService implements IUserService {
         return this.users.slice(start, end)
     }
     //30 users
-    //offset=0- start-
+    // start-
     //limit=5- end
-    //1->1-5,2->6-10,3->11-15,4->16-20...
+    //1->0-5,2->5-10,3->10-15,4->15-20...
 }
 
 const userService = new UserService()
@@ -50,6 +50,9 @@ const user1 = new User("Alisha", 34, "a@g.com")
 const user2 = new User("Ajay", 54, "ajay@g.com")
 userService.addUser(user1)
 userService.addUser(user2)
+console.log(user1);
+console.log(user2);
+
 const user3 = userService.getUserByEmail(user2.email)
 console.log(user3);
 
