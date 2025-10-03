@@ -12,15 +12,14 @@ export type Cart = { userId: string, items: CartItem[] }
 
 export type OrderItem = { productId: string, qty: number }
 
-export type Order = { id: string, userId: string, items: OrderItem[] }
+export type Order = { id: string, userId: string, items: OrderItem[], status: OrderStatus }
 
 export enum UserType {
     CUSTOMER = "CUSTOMER",
     ADMIN = "ADMIN"
-
 }
 
-
-
-
-
+export enum OrderStatus {
+    FULFILLED = "FULFILLED",
+    CANCELLED = "CANCELLED"
+}

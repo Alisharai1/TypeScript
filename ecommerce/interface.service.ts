@@ -15,7 +15,7 @@ export interface IProductService {
     addProduct(params: { name: string, price: number, stock: number, userId: string }): Product
     getProductById(id: string): Product
     getProductsByName(name: string): Product[]
-    updateProduct(params: { id:string,name?: string, price?: number, stock?: number, userId: string }): Product
+    updateProduct(params: { id: string, name?: string, price?: number, stock?: number, userId: string }): Product
     deleteProduct(id: string, userId: string): void
 }
 
@@ -28,6 +28,6 @@ export interface ICartService {
 
 export interface IOrderService {
     createOrder(params: { userId: string, items: OrderItem[] }): Order
-    cancelOrder(id: string): boolean
+    cancelOrder(id: string): void
     getOrderById(id: string): Order
 }

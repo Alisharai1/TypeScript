@@ -87,6 +87,15 @@ interface OrderService{
     cancelOrder(id:string):boolean
     getOrderById(id:string):Order
 }
+<!-- 
+type CartItem={productId:string,qty:number}
+type Cart={userId:string,items:CartItem[]}
+
+const cart:Cart={
+userId:"u101"
+items:[{}]
+}
+ -->
 
 
  
