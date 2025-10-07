@@ -28,7 +28,7 @@ console.log(avgMarks);
  * let sum=0
  * this.student.grades.forEach((ele)=>{
  * sum+=ele
- * sum/this.student.grades.length
+ * sum/this.student.grades.lengthw
  * })
  * }
  */
