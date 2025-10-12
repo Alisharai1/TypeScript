@@ -1,9 +1,9 @@
 import IPerson from "./iservice";
 import { Person } from "./model";
 
-class PersonService implements IPerson {
-    introduce(person: Person): void {
-        console.log(`Hi, I am ${person.name} and I am ${person.age} years old`);
+export class PersonService implements IPerson {
+    introduce(person: Person): string {
+        return (`Hi, I am ${person.name} and I am ${person.age} years old`);
 
     }
 }

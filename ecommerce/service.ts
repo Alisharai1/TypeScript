@@ -1,4 +1,3 @@
-import { it } from "node:test";
 import { DuplicateEmailIdError, UserNotFoundByEmailError, UserNotFoundByIdError, InvalidUserTypeError, ProductNotFoundError, CartNotFoundError, InvalidProductQuantityError, OrderNotFoundError } from "./error";
 import { ICartService, IOrderService, IProductService, IUserService } from "./interface.service";
 import { Address, Contact, UserType, User, Product, Cart, CartItem, Order, OrderItem, OrderStatus } from "./model";
@@ -11,7 +10,7 @@ class UserService implements IUserService {
         this.users = []
     }
 
-    addUser(params: { name: string; email: string; address: Address; contact?: Contact; type: UserType; }): User {
+    addUser(params: { name: string; email: string; address: Address; contact?: Contact; type: UserType }): User {
         try {
             this.getUserByEmail(params.email)
             throw new DuplicateEmailIdError(`user already exist with ${params.email}`)
@@ -86,6 +85,10 @@ class ProductService implements IProductService {
         }
     }
 
+    /**
+     * 
+     * 
+     */
     addProduct(params: { name: string; price: number; stock: number; userId: string; }): Product {
         this.validateUser(params.userId)
         const product: Product = { ...params, id: v4() }
@@ -174,7 +177,6 @@ class CartService implements ICartService {
             this.carts.push(cart)
             return params.item
         }
-
     }
 
     deleteCartItem(userId: string, productId: string): void {
@@ -205,7 +207,6 @@ class OrderService implements IOrderService {
             if (product.stock < qty) {
                 throw new InvalidProductQuantityError(`${product.name} low stock ${product.stock}`)
             }
-
             this.productService.updateProduct({
                 id: productId,
                 stock: product.stock - qty,
