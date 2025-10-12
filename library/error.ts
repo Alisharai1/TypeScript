@@ -16,8 +16,3 @@ export class DuplicateBookError extends Error {
         super(msg)
     }
 }
-export class DuplicateUserError extends Error {
-    constructor(msg: string) {
-        super(msg)
-    }
-}

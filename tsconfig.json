@@ -7,18 +7,21 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
+    //  "types": ["jest"],  
     "module": "nodenext",
     "target": "es2022",
     
     // For nodejs:
      "lib": ["es2022"],
-     "types": ["node"],
+    //  "types": ["node"],
     // and npm install -D @types/node
 
     // Other Outputs
     "sourceMap": false,
     "declaration": false,
     "declarationMap": false,
+
+    "esModuleInterop": true,
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
@@ -34,7 +37,6 @@
 
     // Recommended Options
     "strict": true,
-    "jsx": "react-jsx",
     "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,

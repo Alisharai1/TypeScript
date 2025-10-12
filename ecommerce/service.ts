@@ -177,7 +177,6 @@ class CartService implements ICartService {
             this.carts.push(cart)
             return params.item
         }
-
     }
 
     deleteCartItem(userId: string, productId: string): void {
@@ -208,7 +207,6 @@ class OrderService implements IOrderService {
             if (product.stock < qty) {
                 throw new InvalidProductQuantityError(`${product.name} low stock ${product.stock}`)
             }
-
             this.productService.updateProduct({
                 id: productId,
                 stock: product.stock - qty,

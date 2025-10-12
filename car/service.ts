@@ -1,7 +1,7 @@
 import { ICar } from "./iservice";
 import { Car } from "./model";
 
-class CarService implements ICar {
+export class CarService implements ICar {
     getCarInfo(car: Car): string {
         return `${car.brand} Model ${car.model} ${car.year.getFullYear()}`
     }
