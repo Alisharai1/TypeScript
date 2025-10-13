@@ -9,4 +9,3 @@ export class CarService implements ICar {
 
 const obj = new CarService()
 const output = obj.getCarInfo({ brand: "Tesla", model: "S", year: new Date("2025-09-29") })
-console.log(output);
